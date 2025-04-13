@@ -186,11 +186,6 @@ on:
           - 6.1.y
           - 6.6.y
           - 6.12.y
-          - 5.4.y_5.10.y
-          - 5.15.y_6.1.y
-          - 6.1.y_6.12.y
-          - 6.1.y_6.6.y
-          - 6.6.y_6.12.y
       auto_kernel:
         description: "Auto use the latest kernel."
         required: false
@@ -310,7 +305,7 @@ jobs:
           # Compile method and parameter description: https://docs.armbian.com/Developer-Guide_Build-Options
           cd build/
               ./compile.sh RELEASE=${{ inputs.set_release }} BOARD=rk3318-box BRANCH=current BUILD_MINIMAL=yes \
-                           BUILD_ONLY=no HOST=armbian BUILD_DESKTOP=no EXPERT=yes KERNEL_CONFIGURE=yes \
+                           BUILD_ONLY=no HOST=armbian BUILD_DESKTOP=no EXPERT=yes KERNEL_CONFIGURE=no \
                            COMPRESS_OUTPUTIMAGE="sha" SHARE_LOG=yes
           echo "status=success" >> ${GITHUB_OUTPUT}
 
