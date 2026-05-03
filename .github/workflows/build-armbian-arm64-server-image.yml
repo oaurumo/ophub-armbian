@@ -412,7 +412,7 @@ jobs:
           artifacts: build/output/images/*
           allowUpdates: true
           makeLatest: true
-          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Rebuild Armbian for target boards
         uses: ophub/amlogic-s9xxx-armbian@main
@@ -438,8 +438,8 @@ jobs:
           removeArtifacts: false
           replacesArtifacts: true
           makeLatest: true
-          # token: ${{ secrets.GITHUB_TOKEN }}
-          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
           body: |
             ### Armbian Image Information
             - Default username: `root`
