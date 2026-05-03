@@ -22,10 +22,12 @@ on:
       armbian_board:
         description: "Select device board."
         required: false
-        default: "all"
+        default: "jp-tvbox"
         type: choice
         options:
           - all
+          - H96-tvbox
+          - jp-tvbox
           - amlogic
           - rockchip
           - allwinner
@@ -81,9 +83,7 @@ on:
           - hk1-rbox-k8s
           - hs530r
           - ht2
-          - hugsun-x99
-          - H96-tvbox
-          - jp-tvbox
+          - hugsun-x99          
           - king3399
           - kylin3399
           - lckfb-tspi
