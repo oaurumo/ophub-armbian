@@ -286,6 +286,7 @@ on:
           - server
           - desktop
           - beta
+          - minimal
       builder_name:
         description: "Set Armbian builder signature."
         required: false
