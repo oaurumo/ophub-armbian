@@ -381,9 +381,13 @@ jobs:
 
           # Compile options reference: https://docs.armbian.com/Developer-Guide_Build-Options
           cd build/
-              ./compile.sh RELEASE=${{ inputs.set_release }} BOARD=${config_board} BRANCH=current BUILD_MINIMAL=no \
+              ./compile.sh RELEASE=${{ inputs.set_release }} BOARD=${config_board} BRANCH=current BUILD_MINIMAL=yes \
                            BUILD_ONLY=default HOST=armbian BUILD_DESKTOP=no EXPERT=yes KERNEL_CONFIGURE=no \
                            COMPRESS_OUTPUTIMAGE="sha" SHARE_LOG=yes
+          cd output/images/
+          # sudo split -b 1990M build.tar.xz build.tar.xz.part-                
+          sudo xz -9 *.img
+          cd build/
 
           echo "status=success" >> ${GITHUB_OUTPUT}
 
