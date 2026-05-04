@@ -124,12 +124,12 @@ ERROR="[\033[91m ERROR \033[0m]"
 #================================================================================================
 
 error_msg() {
-    echo -e " [💔] ${1}"
+    echo -e " [馃挃] ${1}"
     exit 1
 }
 
 process_msg() {
-    echo -e " [🌿] ${1}"
+    echo -e " [馃尶] ${1}"
 }
 
 clean_model_conf() {
@@ -1281,12 +1281,18 @@ clean_tmp() {
     losetup -d ${loop_new} 2>/dev/null
 
     cd "${tmp_outpath}"
-    # Compress Armbian image file. Prefer pigz when available; otherwise fall back to gzip.
-    if command -v pigz >/dev/null 2>&1; then
+    
+    # ====== 修改从这里开始 ======
+    # 优先使用 xz 压缩，等级 9
+    if command -v xz >/dev/null 2>&1; then
+        xz -9 -f "${armbian_filename}"
+    elif command -v pigz >/dev/null 2>&1; then
         pigz -qf "${armbian_filename}"
     else
         gzip -qf "${armbian_filename}"
     fi
+    # ====== 修改到这里结束 ======
+
     # Move Armbian files to the output directory
     mv -f "${armbian_filename}"* -t "${armbian_outputpath}"
 
