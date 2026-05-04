@@ -389,7 +389,8 @@ jobs:
           cd output/images/
           # sudo split -b 1990M build.tar.xz build.tar.xz.part-                
           sudo xz -9 *.img
-          cd build/
+          # cd build/
+          cd ../..
 
           echo "status=success" >> ${GITHUB_OUTPUT}
 
