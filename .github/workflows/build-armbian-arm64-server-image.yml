@@ -388,7 +388,7 @@ jobs:
                            COMPRESS_OUTPUTIMAGE="sha" SHARE_LOG=yes
           cd output/images/
           # sudo split -b 1990M build.tar.xz build.tar.xz.part-                
-          sudo xz -9 *.img
+          sudo xz -k -9 *.img
           # cd build/
           cd ../..
 
